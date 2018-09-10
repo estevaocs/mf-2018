@@ -1,11 +1,10 @@
-package br.com.caelum.contas;
+package br.ufg.inf.mf.pratica;
 
 import java.time.LocalDate;
 
-class Aplicacao {
-
+public class Aplicacao {
 	public static void main(String[] args) {
-		System.out.printl(LocalDate.now().getDayOfWeek()).
+		System.out.println(LocalDate.now().getDayOfWeek());
 	}
 }
 
