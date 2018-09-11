@@ -1,0 +1,25 @@
+-classpath
+'/home/aluno/.m2/repository/org/apache/logging/log4j/log4j-api/2.11.0/log4j-api-2.11.0.jar:/home/aluno/.m2/repository/org/apache/logging/log4j/log4j-core/2.11.0/log4j-core-2.11.0.jar'
+-encoding
+'UTF-8'
+-public
+-sourcepath
+'/home/aluno/mf-2018/aula-3/exemplo/src/main/java'
+-html5
+-author
+-bottom
+'Copyright &#169; 2016&#x2013;2018 <a href="http://www.inf.ufg.br">Instituto de Inform?tica (UFG) - F?brica de Software</a>. All rights reserved.'
+-charset
+'UTF-8'
+-d
+'/home/aluno/mf-2018/aula-3/exemplo/target/site/apidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'com.github.kyriosdata:exemplo 1.0.0 API'
+-linkoffline
+'https://docs.oracle.com/javase/8/docs/api' '/home/aluno/mf-2018/aula-3/exemplo/target/javadoc-bundle-options'
+-use
+-version
+-windowtitle
+'com.github.kyriosdata:exemplo 1.0.0 API'

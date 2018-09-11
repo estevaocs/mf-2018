@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ProgramaCalendario.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">com.github.kyriosdata:exemplo</a> &gt; <a href="index.source.html" class="el_package">com.github.kyriosdata.exemplo</a> &gt; <span class="el_source">ProgramaCalendario.java</span></div><h1>ProgramaCalendario.java</h1><pre class="source lang-java linenums">/*
+ * Copyright (c) 2016.
+ * Fábrica de Software - Instituto de Informática (UFG)
+ * Creative Commons Attribution 4.0 International License.
+ */
+
+package com.github.kyriosdata.exemplo;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+/**
+ * Programa que exibe o dia da semana para o dia em que é executado.
+ *
+ */
+public final class ProgramaCalendario {
+
+<span class="nc" id="L18">    private static final Logger logger =</span>
+<span class="nc" id="L19">            LogManager.getLogger(ProgramaCalendario.class);</span>
+
+    /**
+     * Restringe criação de instância.
+     */
+    private ProgramaCalendario() {
+        // Apenas evita criação de instância.
+    }
+
+    /**
+     * Ponto de entrada da aplicação. Apenas para ilustra chamada de método.
+     *
+     * @param args Ignorados.
+     */
+    public static void main(final String[] args) {
+
+<span class="nc" id="L35">        logger.info(&quot;iniciado&quot;);</span>
+<span class="nc" id="L36">        System.out.println(Calendario.diaDaSemanaParaHoje());;</span>
+<span class="nc" id="L37">    }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.1.201803210924</span></div></body></html>

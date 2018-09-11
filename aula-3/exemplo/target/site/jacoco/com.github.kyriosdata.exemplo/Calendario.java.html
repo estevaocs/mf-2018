@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Calendario.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">com.github.kyriosdata:exemplo</a> &gt; <a href="index.source.html" class="el_package">com.github.kyriosdata.exemplo</a> &gt; <span class="el_source">Calendario.java</span></div><h1>Calendario.java</h1><pre class="source lang-java linenums">/*
+ * Copyright (c) 2016.
+ * Fábrica de Software - Instituto de Informática (UFG)
+ * Creative Commons Attribution 4.0 International License.
+ */
+
+package com.github.kyriosdata.exemplo;
+
+import java.time.LocalDate;
+
+/**
+ * Implementação do cálculo de dia da semana.
+ *
+ * &lt;p&gt;Implementação do algoritmo criado por
+ * LARSEN, K. S. Computing the Day of the week,
+ * Dr. Dobb´s Journal, april, 1995.
+ */
+public final class Calendario {
+
+    /**
+     * Maior valor para um dia.
+     */
+    public static final int MAIOR_DIA = 31;
+
+    /**
+     * Valor correspondente ao mês de janeiro.
+     */
+    public static final int JANEIRO = 1;
+
+    /**
+     * Valor correspondente ao mês de fevereiro.
+     */
+    public static final int FEVEREIRO = 2;
+
+    /**
+     * Valor correspondente ao mês de dezembro.
+     */
+    public static final int DEZEMBRO = 12;
+
+    /**
+     * Total de dias em uma semana.
+     */
+    public static final int DIAS_DA_SEMANA = 7;
+
+    /**
+     * Ano de referência para o calendário gregoriano?!
+     */
+    public static final int CALENDARIO_GREGORIANO = 1753;
+
+    /**
+     * Não é esperada criação de instâncias desta classe.
+     */
+<span class="fc" id="L53">    protected Calendario() {</span>
+        // Apenas para agradar análise de cobertura
+<span class="fc" id="L55">    }</span>
+
+    /**
+     * Nomes dos dias da semana, iniciado por &quot;segunda-feira&quot; (índice 0),
+     * seguido de terça-feira (índice 1) e assim sucessivamente, até
+     * &quot;domingo&quot; (índice 6).
+     */
+<span class="fc" id="L62">    public static String[] semana = {</span>
+            &quot;segunda-feira&quot;, &quot;terça-feira&quot;, &quot;quarta-feira&quot;, &quot;quinta-feira&quot;,
+            &quot;sexta-feira&quot;, &quot;sábado&quot;, &quot;domingo&quot;
+    };
+
+    /**
+     * Obtém dia da semana para a data.
+     *
+     * @param dia O dia da data. Valor entre 1 e 31, inclusive.
+     * @param mes O mês da data. Valor entre 1 e 12, inclusive.
+     * @param ano O ano da data. Valor maior que 1752.
+     * @return O dia da semana correspondente à data. O valor 0 para
+     * segunda-feira, 1 para terça-feira, 2 para quarta-feira e
+     * assim sucessivamente.
+     * @throws IllegalArgumentException Se o dia for inválido (menor que um
+     *                                  ou maior que 31), o mês for inválido (menor que 1 ou maior que 12)
+     *                                  ou o ano for menor que 1753.
+     */
+    public static int diaDaSemana(final int dia, final int mes, final int ano) {
+<span class="fc" id="L81">        int m = mes;</span>
+<span class="fc" id="L82">        int a = ano;</span>
+
+<span class="fc bfc" id="L84" title="All 4 branches covered.">        if (dia &lt; 1 || dia &gt; MAIOR_DIA) {</span>
+<span class="fc" id="L85">            throw new IllegalArgumentException(&quot;dia inválido&quot;);</span>
+        }
+
+<span class="fc bfc" id="L88" title="All 4 branches covered.">        if (mes &lt; 1 || mes &gt; DEZEMBRO) {</span>
+<span class="fc" id="L89">            throw new IllegalArgumentException(&quot;mês inválido&quot;);</span>
+        }
+
+<span class="fc bfc" id="L92" title="All 2 branches covered.">        if (ano &lt; CALENDARIO_GREGORIANO) {</span>
+<span class="fc" id="L93">            throw new IllegalArgumentException(&quot;ano inválido&quot;);</span>
+        }
+
+<span class="fc bfc" id="L96" title="All 4 branches covered.">        if (mes == JANEIRO || mes == FEVEREIRO) {</span>
+<span class="fc" id="L97">            m = m + DEZEMBRO;</span>
+<span class="fc" id="L98">            a = a - 1;</span>
+        }
+
+<span class="fc" id="L101">        int s = dia + 2 * m + 3 * (m + 1) / 5 + a + a / 4 - a / 100 + a / 400;</span>
+
+<span class="fc" id="L103">        return s % DIAS_DA_SEMANA;</span>
+    }
+
+    /**
+     * Produz sequência de caracteres indicando o dia corrente e o
+     * dia da semana correspondente.
+     *
+     * @return Sequência que indica o dia corrente (dia em que o método é
+     * executado) e o dia da semana correspondente.
+     */
+    public static String diaDaSemanaParaHoje() {
+<span class="fc" id="L114">        final LocalDate hoje = LocalDate.now();</span>
+<span class="fc" id="L115">        int dia = hoje.getDayOfMonth();</span>
+<span class="fc" id="L116">        int mes = hoje.getMonthValue();</span>
+<span class="fc" id="L117">        int ano = hoje.getYear();</span>
+<span class="fc" id="L118">        int diaDaSemana = diaDaSemana(dia, mes, ano);</span>
+
+<span class="fc" id="L120">        return String.format(&quot;Hoje é %s\n&quot;, semana[diaDaSemana]);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.1.201803210924</span></div></body></html>
