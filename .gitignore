@@ -140,3 +140,28 @@ local.properties
 
 # TeXlipse plugin
 .texlipse
+
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# WebStorm
+/aula-5/cnes/web-app/idea
+
+# dependencies
+/aula-5/cnes/web-app/node_modules
+
+# testing
+/aula-5/cnes/web-app/coverage
+
+# production
+/aula-5/cnes/web-app/build
+
+# misc
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
