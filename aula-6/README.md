@@ -1,6 +1,6 @@
-#Métodos Ágeis
+# Métodos Ágeis
 
-##XP
+## XP
 -Valores do XP;
   -Comunicação;
   -Simplicidade;
@@ -18,7 +18,7 @@
   -Propriedade coletiva;
   -Integração Contínua;
   
-##Scrum
+## Scrum
 - Método ágil;
 - Possui abordagem iterativa e incremental;
 - Requisítos para utilização:
