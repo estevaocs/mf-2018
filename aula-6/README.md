@@ -1,22 +1,22 @@
 # Métodos Ágeis
 
 ## XP
--Valores do XP;
-  -Comunicação;
-  -Simplicidade;
-  -Feedback;
-  -Coragem;
-  -Coach;
--Principais Práticas
-  -Planejamento;
-  -Entrega Frequentes;
-  -Metáfora;
-  -Projeto Simples;
-  -Teste;
-  -Programação em Pares;
-  -Refatoração;
-  -Propriedade coletiva;
-  -Integração Contínua;
+- Valores do XP;
+  - Comunicação;
+  - Simplicidade;
+  - Feedback;
+  - Coragem;
+  - Coach;
+- Principais Práticas;
+  - Planejamento;
+  - Entrega Frequentes;
+  - Metáfora;
+  - Projeto Simples;
+  - Teste;
+  - Programação em Pares;
+  - Refatoração;
+  - Propriedade coletiva;
+  - Integração Contínua;
   
 ## Scrum
 - Método ágil;
