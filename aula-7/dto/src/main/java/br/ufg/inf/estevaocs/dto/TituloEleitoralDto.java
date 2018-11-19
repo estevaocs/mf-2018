@@ -1,22 +1,25 @@
 package br.ufg.inf.estevaocs.dto;
 
 import br.ufg.inf.estevaocs.GenericDto;
+import com.github.reinert.jjschema.Attributes;
 
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.nio.file.Path;
 
 @XmlRootElement
 public class TituloEleitoralDto extends GenericDto {
     @XmlElement
+    @Attributes(required = true)
     private IdentificadorDto identificador;
     @XmlElement
+    @Attributes
     private Integer zona;
     @XmlElement
+    @Attributes
     private Integer sessao;
 
     public TituloEleitoralDto() {
@@ -58,11 +61,28 @@ public class TituloEleitoralDto extends GenericDto {
         return obj;
     }
 
-    public String toJson() throws IOException {
-        return super.toJson();
+
+    public IdentificadorDto getIdentificador() {
+        return identificador;
     }
 
-    public String toXml() throws JAXBException, IOException {
-        return super.toXml();
+    public void setIdentificador(IdentificadorDto identificador) {
+        this.identificador = identificador;
+    }
+
+    public Integer getZona() {
+        return zona;
+    }
+
+    public void setZona(Integer zona) {
+        this.zona = zona;
+    }
+
+    public Integer getSessao() {
+        return sessao;
+    }
+
+    public void setSessao(Integer sessao) {
+        this.sessao = sessao;
     }
 }

@@ -1,0 +1,105 @@
+{
+  "type": "object",
+  "required": [
+    "id",
+    "individuo"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "maxLength": 36
+    },
+    "individuo": {
+      "type": "object",
+      "required": [
+        "individuo"
+      ],
+      "properties": {
+        "individuo": {
+          "type": "string",
+          "maxLength": 36
+        }
+      }
+    },
+    "bairro":{
+      "type" : "string"
+    },
+    "distrito": {
+      "type" : "string"
+    },
+    "municipio": {
+      "type" : "object",
+      "required" : [ "estado", "codigo" ],
+      "properties" : {
+        "estado" : {
+          "type" : "string",
+          "maxLength" : 36
+        },
+        "municipio" : {
+          "type" : "string"
+        },
+        "codigo" : {
+          "type" : "string",
+          "maxLength" : 36
+        }
+      }
+    },
+    "estado": {
+      "type" : "object",
+      "required" : [ "codigo" ],
+      "properties" : {
+        "nome" : {
+          "type" : "string"
+        },
+        "codigo" : {
+          "type" : "string",
+          "maxLength" : 36
+        }
+      }
+    },
+    "cep": {
+      "type" : "string"
+    },
+    "caixaPostal":  {
+      "type" : "string"
+    },
+    "pais": {
+      "type" : "object",
+      "required" : [ "codigo" ],
+      "properties" : {
+        "nome" : {
+          "type" : "string"
+        },
+        "codigo" : {
+          "type" : "integer"
+        }
+      }
+    },
+    "tipo": {
+      "type" : "object",
+      "required" : [ "codigo" ],
+      "properties" : {
+        "descricao" : {
+          "type" : "string"
+        },
+        "codigo" : {
+          "type" : "integer"
+        }
+      }
+    },
+    "dataInicial": {
+      "type" : "date"
+    },
+    "dataInicialAcuracia": {
+      "type" : "string",
+      "maxLength" : 3
+    },
+    "dataFinal": {
+      "type" : "date"
+    },
+    "dataFinalAcuracia": {
+      "type" : "string",
+      "maxLength" : 3
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "type" : "object",
+  "required" : [ "codigo" ],
+  "properties" : {
+    "alternativo" : {
+      "type" : "string",
+      "maxLength" : -1
+    },
+    "codigo" : {
+      "type" : "integer"
+    },
+    "descricao" : {
+      "type" : "string"
+    }
+  }
+}

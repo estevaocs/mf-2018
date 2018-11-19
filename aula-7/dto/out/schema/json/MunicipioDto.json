@@ -1,0 +1,17 @@
+{
+  "type" : "object",
+  "required" : [ "estado", "codigo" ],
+  "properties" : {
+    "estado" : {
+      "type" : "string",
+      "maxLength" : -1
+    },
+    "municipio" : {
+      "type" : "string"
+    },
+    "codigo" : {
+      "type" : "string",
+      "maxLength" : -1
+    }
+  }
+}

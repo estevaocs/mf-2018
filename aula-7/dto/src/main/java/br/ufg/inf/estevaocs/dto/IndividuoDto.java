@@ -2,19 +2,20 @@ package br.ufg.inf.estevaocs.dto;
 
 import br.ufg.inf.estevaocs.DtoInterface;
 import br.ufg.inf.estevaocs.GenericDto;
+import com.github.reinert.jjschema.Attributes;
 
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.nio.file.Path;
 
 @XmlRootElement
 public class IndividuoDto extends GenericDto implements DtoInterface {
 
     @XmlElement
+    @Attributes(required = true, maxLength = 36)
     private String individuo;
 
     public IndividuoDto() {
@@ -55,12 +56,12 @@ public class IndividuoDto extends GenericDto implements DtoInterface {
         return obj;
     }
 
-    public String toJson() throws IOException {
-        return super.toJson();
+    public String getIndividuo() {
+        return individuo;
     }
 
-    public String toXml() throws JAXBException, IOException {
-        return super.toXml();
+    public void setIndividuo(String individuo) {
+        this.individuo = individuo;
     }
 }
 

@@ -1,0 +1,12 @@
+{
+  "type" : "object",
+  "required" : [ "codigo" ],
+  "properties" : {
+    "descricao" : {
+      "type" : "string"
+    },
+    "codigo" : {
+      "type" : "string"
+    }
+  }
+}

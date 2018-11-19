@@ -1,0 +1,63 @@
+{
+  "type" : "object",
+  "required" : [ "comunicacaoMeio", "detalhe", "individuo" ],
+  "properties" : {
+    "comunicacaoMeio" : {
+      "type" : "object",
+      "required" : [ "codigo" ],
+      "properties" : {
+        "descricao" : {
+          "type" : "string"
+        },
+        "codigo" : {
+          "type" : "integer"
+        },
+        "alternativo" : {
+          "type" : "string",
+          "maxLength" : -1
+        }
+      }
+    },
+    "detalhe" : {
+      "type" : "string"
+    },
+    "comunicacaoUso" : {
+      "type" : "object",
+      "required" : [ "codigo" ],
+      "properties" : {
+        "codigo" : {
+          "type" : "integer"
+        },
+        "alternativo" : {
+          "type" : "string",
+          "maxLength" : -1
+        },
+        "descricao" : {
+          "type" : "string"
+        }
+      }
+    },
+    "individuo" : {
+      "type" : "object",
+      "required" : [ "individuo" ],
+      "properties" : {
+        "individuo" : {
+          "type" : "string",
+          "maxLength" : -1
+        }
+      }
+    },
+    "comunicacaoPreferencia" : {
+      "type" : "object",
+      "required" : [ "codigo" ],
+      "properties" : {
+        "descricao" : {
+          "type" : "string"
+        },
+        "codigo" : {
+          "type" : "string"
+        }
+      }
+    }
+  }
+}

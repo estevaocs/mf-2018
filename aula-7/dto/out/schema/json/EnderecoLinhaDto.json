@@ -1,0 +1,25 @@
+{
+  "type" : "object",
+  "required" : [ "endereco" ],
+  "properties" : {
+    "endereco": {
+      "type" : "object",
+      "required" : [ "codigo" ],
+      "properties" : {
+        "nome" : {
+          "type" : "string"
+        },
+        "codigo" : {
+          "type" : "string",
+          "maxLength" : -1
+        }
+      }
+    },
+    "linha": {
+      "type" : "string"
+    },
+    "ordem": {
+      "type" : "integer"
+    }
+  }
+}

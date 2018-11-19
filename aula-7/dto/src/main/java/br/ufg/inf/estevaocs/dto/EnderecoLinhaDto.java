@@ -2,29 +2,32 @@ package br.ufg.inf.estevaocs.dto;
 
 import br.ufg.inf.estevaocs.DtoInterface;
 import br.ufg.inf.estevaocs.GenericDto;
+import com.github.reinert.jjschema.Attributes;
 
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.nio.file.Path;
 
 @XmlRootElement
 public class EnderecoLinhaDto extends GenericDto implements DtoInterface {
 
     @XmlElement
-    private String endereco;
+    @Attributes(required = true)
+    private EnderecoDto endereco;
     @XmlElement
+    @Attributes
     private String linha;
     @XmlElement
+    @Attributes
     private Integer ordem;
 
     public EnderecoLinhaDto() {
     }
 
-    public EnderecoLinhaDto(String endereco, String linha, Integer ordem) {
+    public EnderecoLinhaDto(EnderecoDto endereco, String linha, Integer ordem) {
         this.endereco = endereco;
         this.linha = linha;
         this.ordem = ordem;
@@ -60,11 +63,29 @@ public class EnderecoLinhaDto extends GenericDto implements DtoInterface {
         EnderecoLinhaDto obj = GenericDto.fromXml(xml.toFile(), EnderecoLinhaDto.class);
         return obj;
     }
-    public String toJson() throws IOException {
-        return super.toJson();
+
+
+    public EnderecoDto getEndereco() {
+        return endereco;
     }
 
-    public String toXml() throws JAXBException, IOException {
-        return super.toXml();
+    public void setEndereco(EnderecoDto endereco) {
+        this.endereco = endereco;
+    }
+
+    public String getLinha() {
+        return linha;
+    }
+
+    public void setLinha(String linha) {
+        this.linha = linha;
+    }
+
+    public Integer getOrdem() {
+        return ordem;
+    }
+
+    public void setOrdem(Integer ordem) {
+        this.ordem = ordem;
     }
 }

@@ -1,32 +1,40 @@
 package br.ufg.inf.estevaocs.dto;
 
 import br.ufg.inf.estevaocs.GenericDto;
+import com.github.reinert.jjschema.Attributes;
 
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.nio.file.Path;
 
 @XmlRootElement
 public class NomeDto extends GenericDto {
     @XmlElement
+    @Attributes(required = true, maxLength = 36)
     private String id;
     @XmlElement
+    @Attributes(required = true)
     private IndividuoDto individuo;
     @XmlElement
+    @Attributes
     private String titulos;
     @XmlElement
+    @Attributes
     private String nomes;
     @XmlElement
+    @Attributes
     private String sobrenomes;
     @XmlElement
+    @Attributes
     private String sufixos;
     @XmlElement
+    @Attributes(required = true)
     private NomePreferidoDto nomePreferido;
     @XmlElement
+    @Attributes
     private UsoCondicionalDto usoCondicional;
 
     public NomeDto() {
@@ -74,12 +82,67 @@ public class NomeDto extends GenericDto {
         return obj;
     }
 
-    public String toJson() throws IOException {
-        return super.toJson();
+    public String getId() {
+        return id;
     }
 
-    public String toXml() throws JAXBException, IOException {
-        return super.toXml();
+    public void setId(String id) {
+        this.id = id;
     }
-    
+
+    public IndividuoDto getIndividuo() {
+        return individuo;
+    }
+
+    public void setIndividuo(IndividuoDto individuo) {
+        this.individuo = individuo;
+    }
+
+    public String getTitulos() {
+        return titulos;
+    }
+
+    public void setTitulos(String titulos) {
+        this.titulos = titulos;
+    }
+
+    public String getNomes() {
+        return nomes;
+    }
+
+    public void setNomes(String nomes) {
+        this.nomes = nomes;
+    }
+
+    public String getSobrenomes() {
+        return sobrenomes;
+    }
+
+    public void setSobrenomes(String sobrenomes) {
+        this.sobrenomes = sobrenomes;
+    }
+
+    public String getSufixos() {
+        return sufixos;
+    }
+
+    public void setSufixos(String sufixos) {
+        this.sufixos = sufixos;
+    }
+
+    public NomePreferidoDto getNomePreferido() {
+        return nomePreferido;
+    }
+
+    public void setNomePreferido(NomePreferidoDto nomePreferido) {
+        this.nomePreferido = nomePreferido;
+    }
+
+    public UsoCondicionalDto getUsoCondicional() {
+        return usoCondicional;
+    }
+
+    public void setUsoCondicional(UsoCondicionalDto usoCondicional) {
+        this.usoCondicional = usoCondicional;
+    }
 }

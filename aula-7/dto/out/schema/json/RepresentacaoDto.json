@@ -1,0 +1,67 @@
+{
+  "type" : "object",
+  "required" : [ "nome" ],
+  "properties" : {
+    "nome" : {
+      "type" : "object",
+      "required" : [ "id", "nomePreferido", "individuo" ],
+      "properties" : {
+        "sobrenomes" : {
+          "type" : "string"
+        },
+        "id" : {
+          "type" : "string",
+          "maxLength" : -1
+        },
+        "nomes" : {
+          "type" : "string"
+        },
+        "nomePreferido" : {
+          "type" : "object",
+          "required" : [ "codigo" ],
+          "properties" : {
+            "codigo" : {
+              "type" : "integer"
+            },
+            "descricao" : {
+              "type" : "string"
+            }
+          }
+        },
+        "usoCondicional" : {
+          "type" : "object",
+          "properties" : {
+            "descricao" : {
+              "type" : "string"
+            },
+            "codigo" : {
+              "type" : "integer"
+            }
+          }
+        },
+        "sufixos" : {
+          "type" : "string"
+        },
+        "titulos" : {
+          "type" : "string"
+        },
+        "individuo" : {
+          "type" : "object",
+          "required" : [ "individuo" ],
+          "properties" : {
+            "individuo" : {
+              "type" : "string",
+              "maxLength" : -1
+            }
+          }
+        }
+      }
+    },
+    "utilizacao" : {
+      "type" : "string"
+    },
+    "alternativa" : {
+      "type" : "string"
+    }
+  }
+}

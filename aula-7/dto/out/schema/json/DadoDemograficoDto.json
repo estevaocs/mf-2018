@@ -1,0 +1,213 @@
+{
+  "type": "object",
+  "required": [
+    "individuo",
+    "sexo"
+  ],
+  "properties": {
+    "individuo": {
+      "type": "object",
+      "required": [
+        "individuo"
+      ],
+      "properties": {
+        "individuo": {
+          "type": "string",
+          "maxLength": -1
+        }
+      }
+    },
+    "nascimento": {
+      "type": "date"
+    },
+    "nascimentoAcuracia": {
+      "type": "integer",
+      "maxLengh": 3
+    },
+    "nascimentoSeguimento": {
+      "type": "object",
+      "required": [
+        "codigo"
+      ],
+      "properties": {
+        "descricao": {
+          "type": "string"
+        },
+        "codigo": {
+          "type": "string",
+          "maxLength": -1
+        }
+      }
+    },
+    "nascimentoPluraridade": {
+      "type": "object",
+      "required": [
+        "codigo"
+      ],
+      "properties": {
+        "descricao": {
+          "type": "string"
+        },
+        "codigo": {
+          "type": "integer"
+        }
+      }
+    },
+    "nascimentoOrdem": {
+      "type": "object",
+      "required": [
+        "codigo"
+      ],
+      "properties": {
+        "descricao": {
+          "type": "string"
+        },
+        "codigo": {
+          "type": "integer"
+        }
+      }
+    },
+    "obito": {
+      "type": "date"
+    },
+    "obitoAcuracia": {
+      "type": "string",
+      "maxLength": 3
+    },
+    "obitoFonte": {
+      "type": "object",
+      "required": [
+        "codigo"
+      ],
+      "properties": {
+        "codigo": {
+          "type": "integer"
+        },
+        "descricao": {
+          "type": "string"
+        }
+      }
+    },
+    "sexo": {
+      "type": "object",
+      "required": [
+        "codigo"
+      ],
+      "properties": {
+        "alternativo": {
+          "type": "string",
+          "maxLength": -1
+        },
+        "codigo": {
+          "type": "integer"
+        },
+        "descricao": {
+          "type": "string"
+        }
+      }
+    },
+    "mae": {
+      "type": "string"
+    },
+    "pai": {
+      "type": "string"
+    },
+    "situacaoFamiliar": {
+      "type": "object",
+      "required": [
+        "codigo"
+      ],
+      "properties": {
+        "descricao": {
+          "type": "string"
+        },
+        "codigo": {
+          "type": "integer"
+        }
+      }
+    },
+    "raca": {
+      "type": "object",
+      "required": [
+        "codigo"
+      ],
+      "properties": {
+        "codigo": {
+          "type": "integer"
+        },
+        "descricao": {
+          "type": "string"
+        }
+      }
+    },
+    "comentario": {
+      "tyoe": "string"
+    },
+    "nacionalidade": {
+      "type": "object",
+      "required": [
+        "codigo"
+      ],
+      "properties": {
+        "codigo": {
+          "type": "integer"
+        },
+        "descricao": {
+          "type": "string"
+        }
+      }
+    },
+    "municipio": {
+      "type": "object",
+      "required": [
+        "estado",
+        "codigo"
+      ],
+      "properties": {
+        "estado": {
+          "type": "string",
+          "maxLength": -1
+        },
+        "municipio": {
+          "type": "string"
+        },
+        "codigo": {
+          "type": "string",
+          "maxLength": -1
+        }
+      }
+    },
+    "estado": {
+      "type": "object",
+      "required": [
+        "codigo"
+      ],
+      "properties": {
+        "nome": {
+          "type": "string"
+        },
+        "codigo": {
+          "type": "string",
+          "maxLength": -1
+        }
+      }
+    },
+    "pais": {
+      "type": "object",
+      "required": [
+        "codigo"
+      ],
+      "properties": {
+        "nome": {
+          "type": "string"
+        },
+        "codigo": {
+          "type": "integer"
+        }
+      }
+    },
+    "dataEntradaPais": {
+      "type": "date"
+    }
+  }
+}

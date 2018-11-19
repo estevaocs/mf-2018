@@ -2,12 +2,12 @@ package br.ufg.inf.estevaocs.dto;
 
 import br.ufg.inf.estevaocs.DtoInterface;
 import br.ufg.inf.estevaocs.GenericDto;
+import com.github.reinert.jjschema.Attributes;
 
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.annotation.*;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.nio.file.Path;
 
 @XmlRootElement
@@ -15,9 +15,11 @@ import java.nio.file.Path;
 public class NascimentoPluraridadeDto extends GenericDto implements DtoInterface {
 
     @XmlElement
+    @Attributes(required = true)
     private Integer codigo;
 
     @XmlElement
+    @Attributes
     private String  descricao;
 
     public NascimentoPluraridadeDto(Integer codigo, String descricao) {
@@ -59,13 +61,19 @@ public class NascimentoPluraridadeDto extends GenericDto implements DtoInterface
         return obj;
     }
 
-    public String toJson() throws IOException {
-        return super.toJson();
+    public Integer getCodigo() {
+        return codigo;
     }
 
-    public String toXml() throws JAXBException, IOException {
-        return super.toXml();
+    public void setCodigo(Integer codigo) {
+        this.codigo = codigo;
     }
 
+    public String getDescricao() {
+        return descricao;
+    }
 
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
 }

@@ -1,22 +1,25 @@
 package br.ufg.inf.estevaocs.dto;
 
 import br.ufg.inf.estevaocs.GenericDto;
+import com.github.reinert.jjschema.Attributes;
 
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.nio.file.Path;
 
 @XmlRootElement
 public class RepresentacaoDto extends GenericDto {
     @XmlElement
+    @Attributes(required = true)
     private NomeDto nome;
     @XmlElement
+    @Attributes
     private String utilizacao;
     @XmlElement
+    @Attributes
     private String alternativa;
 
     public RepresentacaoDto() {
@@ -58,11 +61,27 @@ public class RepresentacaoDto extends GenericDto {
         return obj;
     }
 
-    public String toJson() throws IOException {
-        return super.toJson();
+    public NomeDto getNome() {
+        return nome;
     }
 
-    public String toXml() throws JAXBException, IOException {
-        return super.toXml();
+    public void setNome(NomeDto nome) {
+        this.nome = nome;
+    }
+
+    public String getUtilizacao() {
+        return utilizacao;
+    }
+
+    public void setUtilizacao(String utilizacao) {
+        this.utilizacao = utilizacao;
+    }
+
+    public String getAlternativa() {
+        return alternativa;
+    }
+
+    public void setAlternativa(String alternativa) {
+        this.alternativa = alternativa;
     }
 }

@@ -1,27 +1,32 @@
 package br.ufg.inf.estevaocs.dto;
 
 import br.ufg.inf.estevaocs.GenericDto;
+import com.github.reinert.jjschema.Attributes;
 
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.nio.file.Path;
 import java.util.Calendar;
 
 @XmlRootElement
 public class VinculoDto extends GenericDto {
     @XmlElement
+    @Attributes(required = true)
     private IdentificadorDto identificador;
     @XmlElement
+    @Attributes(required = true)
     private IndividuoDto individuo;
     @XmlElement
+    @Attributes
     private RelacionamentoTipoDto relacionamento;
     @XmlElement
+    @Attributes
     private Calendar dataInicio;
     @XmlElement
+    @Attributes
     private Calendar dataFinal;
 
     public VinculoDto() {
@@ -66,12 +71,43 @@ public class VinculoDto extends GenericDto {
         return obj;
     }
 
-    public String toJson() throws IOException {
-        return super.toJson();
+    public IdentificadorDto getIdentificador() {
+        return identificador;
     }
 
-    public String toXml() throws JAXBException, IOException {
-        return super.toXml();
+    public void setIdentificador(IdentificadorDto identificador) {
+        this.identificador = identificador;
     }
-    
+
+    public IndividuoDto getIndividuo() {
+        return individuo;
+    }
+
+    public void setIndividuo(IndividuoDto individuo) {
+        this.individuo = individuo;
+    }
+
+    public RelacionamentoTipoDto getRelacionamento() {
+        return relacionamento;
+    }
+
+    public void setRelacionamento(RelacionamentoTipoDto relacionamento) {
+        this.relacionamento = relacionamento;
+    }
+
+    public Calendar getDataInicio() {
+        return dataInicio;
+    }
+
+    public void setDataInicio(Calendar dataInicio) {
+        this.dataInicio = dataInicio;
+    }
+
+    public Calendar getDataFinal() {
+        return dataFinal;
+    }
+
+    public void setDataFinal(Calendar dataFinal) {
+        this.dataFinal = dataFinal;
+    }
 }

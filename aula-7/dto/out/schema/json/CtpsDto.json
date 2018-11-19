@@ -1,0 +1,87 @@
+{
+  "type" : "object",
+  "required" : [ "identificador" ],
+  "properties" : {
+    "identificador": {
+      "type": "object",
+      "required": [
+        "id",
+        "individuo",
+        "designacao",
+        "area",
+        "emissor",
+        "data",
+        "tipo"
+      ],
+      "properties": {
+        "id": {
+          "type" : "string",
+          "maxLength" : 36
+        },
+        "individuo": {
+          "type" : "object",
+          "required" : [ "individuo" ],
+          "properties" : {
+            "individuo" : {
+              "type" : "string",
+              "maxLength" : 36
+            }
+          }
+        },
+        "designação": {
+          "type" : "string"
+        },
+        "area": {
+          "type" : "object",
+          "required" : [ "codigo" ],
+          "properties" : {
+            "descricao" : {
+              "type" : "string"
+            },
+            "codigo" : {
+              "type" : "integer"
+            },
+            "alternativo" : {
+              "type" : "string",
+              "maxLength" : 1
+            }
+          }
+        },
+        "emissor": {
+          "type" : "string"
+        },
+        "data": {
+          "type": "date"
+        },
+        "tipo": {
+          "type" : "object",
+          "required" : [ "codigo" ],
+          "properties" : {
+            "descricao" : {
+              "type" : "string"
+            },
+            "codigo" : {
+              "type" : "string"
+            }
+          }
+        }
+      }
+    },
+    "serie": {
+      "type" : "integer"
+    },
+    "estado": {
+      "type" : "object",
+      "required" : [ "codigo" ],
+      "properties" : {
+        "nome" : {
+          "type" : "string"
+        },
+        "codigo" : {
+          "type" : "string",
+          "maxLength" : 2
+        }
+      }
+    }
+  }
+}

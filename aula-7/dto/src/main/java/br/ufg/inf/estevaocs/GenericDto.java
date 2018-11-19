@@ -9,8 +9,9 @@ import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 import java.io.*;
 import java.lang.reflect.Type;
+import java.nio.file.Path;
 
-public class GenericDto<T> implements DtoInterface {
+public class GenericDto implements DtoInterface {
 
 
     protected static <T> T fromJson(String json, Class<?> src) {
@@ -21,18 +22,33 @@ public class GenericDto<T> implements DtoInterface {
     protected static <T> T fromJson(File file, Class<?> src) throws FileNotFoundException {
         Gson gson = new Gson();
         JsonReader wr = new JsonReader(new FileReader(file));
-        return (T) gson.fromJson(wr, src);
+        return gson.fromJson(wr, src);
     }
 
     public String toJson() throws IOException {
         Gson gson = new Gson();
-        String className = this.getClass().getName().replace(this.getClass().getPackageName()+".", "");
-        String fileName = "out/json/" + className + ".json";
-        String json = gson.toJson(this);
-        BufferedWriter writer = new BufferedWriter(new FileWriter(fileName));
+        return gson.toJson(this);
+    }
+
+    public void toJson(String path) throws IOException {
+        Gson gson = new Gson();
+        BufferedWriter writer = new BufferedWriter(new FileWriter(path));
         gson.toJson(this, writer);
         writer.close();
-        return json;
+    }
+
+    public void toJson(Path path) throws IOException {
+        Gson gson = new Gson();
+        BufferedWriter writer = new BufferedWriter(new FileWriter(path.toString()));
+        gson.toJson(this, writer);
+        writer.close();
+    }
+
+    public void toJson(File file) throws IOException {
+        Gson gson = new Gson();
+        BufferedWriter writer = new BufferedWriter(new FileWriter(file.getName()));
+        gson.toJson(this, writer);
+        writer.close();
     }
 
     protected static <T> T fromXml(String xml, Class<?> src) throws JAXBException {
@@ -52,15 +68,33 @@ public class GenericDto<T> implements DtoInterface {
     public String toXml() throws JAXBException, IOException {
         JAXBContext jaxbContext = JAXBContext.newInstance(this.getClass());
         Marshaller marshaller = jaxbContext.createMarshaller();
-        String className = this.getClass().getName().replace(this.getClass().getPackageName() + ".", "");
-        String fileName = "out/xml/" + className + ".xml";
-        Writer fw = new FileWriter(fileName);
         Writer sw = new StringWriter();
-        marshaller.marshal(this, fw);
-        fw.close();
         marshaller.marshal(this, sw);
         return sw.toString();
     }
 
+    public void toXml(String path) throws JAXBException, IOException {
+        JAXBContext jaxbContext = JAXBContext.newInstance(this.getClass());
+        Marshaller marshaller = jaxbContext.createMarshaller();
+        Writer fw = new FileWriter(path);
+        marshaller.marshal(this, fw);
+        fw.close();
+    }
+
+    public void toXml(Path path) throws JAXBException, IOException {
+        JAXBContext jaxbContext = JAXBContext.newInstance(this.getClass());
+        Marshaller marshaller = jaxbContext.createMarshaller();
+        Writer fw = new FileWriter(path.toString());
+        marshaller.marshal(this, fw);
+        fw.close();
+    }
+
+    public void toXml(File file) throws JAXBException, IOException {
+        JAXBContext jaxbContext = JAXBContext.newInstance(this.getClass());
+        Marshaller marshaller = jaxbContext.createMarshaller();
+        Writer fw = new FileWriter(file.getPath());
+        marshaller.marshal(this, fw);
+        fw.close();
+    }
 
 }

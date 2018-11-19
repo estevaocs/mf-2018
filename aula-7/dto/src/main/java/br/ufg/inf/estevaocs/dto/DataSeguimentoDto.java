@@ -1,22 +1,23 @@
 package br.ufg.inf.estevaocs.dto;
 
-import br.ufg.inf.estevaocs.DtoInterface;
 import br.ufg.inf.estevaocs.GenericDto;
+import com.github.reinert.jjschema.Attributes;
 
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.nio.file.Path;
 
 @XmlRootElement
 public class DataSeguimentoDto extends GenericDto {
 
     @XmlElement
+    @Attributes(required = true, maxLength = 1)
     private String codigo;
     @XmlElement
+    @Attributes
     private  String descricao;
 
     public DataSeguimentoDto() {
@@ -58,11 +59,19 @@ public class DataSeguimentoDto extends GenericDto {
         return obj;
     }
 
-    public String toJson() throws IOException {
-        return super.toJson();
+    public String getCodigo() {
+        return codigo;
     }
 
-    public String toXml() throws JAXBException, IOException {
-        return super.toXml();
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
     }
 }

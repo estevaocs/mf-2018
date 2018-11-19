@@ -1,0 +1,12 @@
+{
+  "type" : "object",
+  "required" : [ "codigo" ],
+  "properties" : {
+    "nome" : {
+      "type" : "string"
+    },
+    "codigo" : {
+      "type" : "integer"
+    }
+  }
+}
